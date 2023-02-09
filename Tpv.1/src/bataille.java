@@ -66,13 +66,13 @@ public class bataille {
 
     public static void AfficherGrille(int [][]grille){
         int compteur = 0;
-        System.out.print(" A B C D E F G H I J\n");
+        System.out.print("    A B C D E F G H I J\n");
         for(int ligne = 0; ligne < 10; ligne++){
 
-            //System.out.print(compteur/10);
+            System.out.print(compteur/10 + 1 + "  ");
 
             for(int colonne = 0; colonne < 10; colonne++){
-                System.out.print(" "+grille[ligne][colonne]);
+                System.out.print(" "+ grille[ligne][colonne]);
                 compteur+= 1;
                 if(compteur % 10 == 0){
                     System.out.println();
