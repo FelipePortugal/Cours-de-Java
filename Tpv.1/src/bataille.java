@@ -9,6 +9,7 @@ public class bataille {
 
     //verification des parametres...
     public static boolean posOk(int [][]grille, int l, int c, int d, int t){
+        //out of index a faire
         int valeurTab = 0;
 
         for(int indice = 0;indice < t; indice++){
@@ -36,28 +37,62 @@ public class bataille {
         }
     }
     public static void initGrilleOrdi(){
-        int ligne = randRange(0, 10);
-        int colonne = randRange(0, 10);
-        int direction = randRange(1, 3);
-        int x = 2;
-        /*
-        ligne = randRange(0, 10);
-            colonne = randRange(0, 10);
-            direction = randRange(1, 3);
-         */
+        int l = randRange(0, 10);
+        int c = randRange(0, 10);
+        int d = randRange(1, 3);
 
-        if(posOk( grilleOrdi,ligne, colonne, direction, x) == true){
-            grilleOrdi [ligne][colonne] = 1;
-            ligne+= 1;
-            colonne+= 1;
+        int x = 2;
+        int lngr = 5;
+        boolean ok = true;
+
+        //En verticale
+        System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
+        bato(l,c, d, 5);
+        /*do{
+            for(int indice = 0; indice < lngr; indice++){
+                ok = posOk(grilleOrdi,ligne, colonne, direction, x);
+            }
+           if(ok == false ){
+                ligne = randRange(0, 10);
+                colonne = randRange(0, 10);
+                direction = randRange(1, 3);
+            }
+        }while(!ok);*/
+//        //Si à la verticale
+//        for(int i = 0; i < lngr; i++){
+//            grilleOrdi[ligne + i][colonne] = 5;
+//        }
+
+//        ligne = randRange(0, 10);
+//        colonne = randRange(0, 10);
+//        direction = randRange(1, 3);
+    }
+
+    public static void bato(int ligne, int colonne, int direction , int lngr){
+        boolean ok = true;
+
+        do{
+            //for(int indice = 0; indice < lngr; indice++){
+                ok = posOk(grilleOrdi,ligne, colonne, direction, 5);
+            //}
+            if(ok == false ){
+                ligne = randRange(0, 10);
+                colonne = randRange(0, 10);
+                direction = randRange(1, 3);
+            }
+        }while(!ok);
+        //Si à la verticale
+        if(direction == 1){
+            for(int i = 0; i < lngr; i++){
+                grilleOrdi[ligne + i][colonne] = 5;
+            }
         }
         else{
-            ligne = randRange(0, 10);
-            colonne = randRange(0, 10);
+            for(int i = 0; i < lngr; i++){
+                grilleOrdi[ligne][colonne + i] = 5;
+            }
         }
-
-
-    }
+   }
 
     public static Random rand = new Random();
     public static int randRange(int a, int b){
