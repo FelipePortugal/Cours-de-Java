@@ -12,23 +12,38 @@ public class bataille {
         //out of index a faire
         int valeurTab = 0;
 
-        for(int indice = 0;indice < t; indice++){
-            if(d == 1){
+        if(d ==1){
+            if(c >= 5){
                 for(int indiceLigne = 0; indiceLigne < l; indiceLigne++){
-                    for(int indiceColonne = 0; indiceColonne < c + indice;indiceColonne++){
-                        valeurTab =  grille[indiceLigne][indiceColonne];
+                    for(int indiceColonne = c; indiceColonne > c-t;indiceColonne--  ){
+                        valeurTab+= grille[indiceLigne][indiceColonne];
                     }
                 }
             }
             else{
-                for(int indiceLigne = 0; indiceLigne < l + indice; indiceLigne++){
-                    for(int indiceColonne = 0; indiceColonne < c;indiceColonne++){
-                        valeurTab = grille[indiceLigne][indiceColonne];
+                for(int indiceLigne = 0; indiceLigne < l; indiceLigne++){
+                    for(int indiceColonne = c; indiceColonne < c+t;indiceColonne++  ){
+                        valeurTab+= grille[indiceLigne][indiceColonne];
                     }
                 }
             }
         }
-
+        else{
+            if(l >= 5){
+                for(int indiceLigne = l; indiceLigne > l-t; indiceLigne--){
+                    for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
+                        valeurTab+= grille[indiceLigne][indiceColonne];
+                    }
+                }
+            }
+            else{
+                for(int indiceLigne = l; indiceLigne > l+t; indiceLigne++){
+                    for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
+                        valeurTab+= grille[indiceLigne][indiceColonne];
+                    }
+                }
+            }
+        }
         if(valeurTab == 0){
             return true;
         }
@@ -40,32 +55,34 @@ public class bataille {
         int l = randRange(0, 10);
         int c = randRange(0, 10);
         int d = randRange(1, 3);
-
-        int x = 2;
-        int lngr = 5;
-        boolean ok = true;
-
         //En verticale
         System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
-        bato(l,c, d, 5);
-        /*do{
-            for(int indice = 0; indice < lngr; indice++){
-                ok = posOk(grilleOrdi,ligne, colonne, direction, x);
-            }
-           if(ok == false ){
-                ligne = randRange(0, 10);
-                colonne = randRange(0, 10);
-                direction = randRange(1, 3);
-            }
-        }while(!ok);*/
-//        //Si à la verticale
-//        for(int i = 0; i < lngr; i++){
-//            grilleOrdi[ligne + i][colonne] = 5;
-//        }
 
-//        ligne = randRange(0, 10);
-//        colonne = randRange(0, 10);
-//        direction = randRange(1, 3);
+        bato(l,c, d, 5);
+        l = randRange(0, 10);
+        c = randRange(0, 10);
+        d = randRange(1, 3);
+
+        System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
+
+        bato(l,c, d, 4);
+        l = randRange(0, 10);
+        c = randRange(0, 10);
+        d = randRange(1, 3);
+
+        System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
+//        bato(l,c, d, 3);
+//        l = randRange(0, 10);
+//        c = randRange(0, 10);
+//        d = randRange(1, 3);
+//        bato(l,c, d, 3);
+//        l = randRange(0, 10);
+//        c = randRange(0, 10);
+//        d = randRange(1, 3);
+//        bato(l,c, d, 2);
+//        l = randRange(0, 10);
+//        c = randRange(0, 10);
+//        d = randRange(1, 3);
     }
 
     public static void bato(int ligne, int colonne, int direction , int lngr){
@@ -84,12 +101,12 @@ public class bataille {
         //Si à la verticale
         if(direction == 1){
             for(int i = 0; i < lngr; i++){
-                grilleOrdi[ligne + i][colonne] = 5;
+                grilleOrdi[ligne + i][colonne] = lngr;
             }
         }
         else{
             for(int i = 0; i < lngr; i++){
-                grilleOrdi[ligne][colonne + i] = 5;
+                grilleOrdi[ligne][colonne + i] = lngr;
             }
         }
    }
