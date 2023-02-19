@@ -7,45 +7,46 @@ public class bataille {
     public static int [][] grilleOrdi = new int [10][10];
     public static int [][] grilleJeu = new int [10][10];
 
-    //verification des parametres...
     public static boolean posOk(int [][]grille, int l, int c, int d, int t){
-        //out of index a faire
         int valeurTab = 0;
 
         if(d ==1){
-            if(c >= 5){
+            if(c > 5){
                 for(int indiceLigne = 0; indiceLigne < l; indiceLigne++){
-                    for(int indiceColonne = c; indiceColonne > c-t;indiceColonne--  ){
+                    for(int indiceColonne = c; indiceColonne > (c-t);indiceColonne-- ){
                         valeurTab+= grille[indiceLigne][indiceColonne];
                     }
                 }
             }
             else{
                 for(int indiceLigne = 0; indiceLigne < l; indiceLigne++){
-                    for(int indiceColonne = c; indiceColonne < c+t;indiceColonne++  ){
+                    for(int indiceColonne = c; indiceColonne < (c+t);indiceColonne++  ){
                         valeurTab+= grille[indiceLigne][indiceColonne];
                     }
                 }
             }
         }
         else{
-            if(l >= 5){
-                for(int indiceLigne = l; indiceLigne > l-t; indiceLigne--){
+            if(l > 5){
+                for(int indiceLigne = l; indiceLigne > (l-t); indiceLigne--){
                     for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
                         valeurTab+= grille[indiceLigne][indiceColonne];
                     }
                 }
             }
             else{
-                for(int indiceLigne = l; indiceLigne > l+t; indiceLigne++){
+                for(int indiceLigne = l; indiceLigne > (l+t); indiceLigne++){
                     for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
                         valeurTab+= grille[indiceLigne][indiceColonne];
+
                     }
                 }
             }
         }
+        System.out.println(valeurTab);
         if(valeurTab == 0){
             return true;
+
         }
         else{
             return false;
@@ -56,22 +57,22 @@ public class bataille {
         int c = randRange(0, 10);
         int d = randRange(1, 3);
         //En verticale
-        System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
+        System.out.println("L: "+ (l ) + " C: " + (c ) + " D: " +d);
 
         bato(l,c, d, 5);
         l = randRange(0, 10);
         c = randRange(0, 10);
         d = randRange(1, 3);
 
-        System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
+        System.out.println("L: "+ (l ) + " C: " + (c ) + " D: " +d);
 
         bato(l,c, d, 4);
         l = randRange(0, 10);
         c = randRange(0, 10);
         d = randRange(1, 3);
 
-        System.out.println("La ligne est: "+ (l + 1) + "\nColonne: " + (c + 1) + "\nDirection: " +d);
-//        bato(l,c, d, 3);
+        System.out.println("L: "+ (l ) + " C: " + (c ) + " D: " +d);
+        bato(l,c, d, 3);
 //        l = randRange(0, 10);
 //        c = randRange(0, 10);
 //        d = randRange(1, 3);
@@ -96,19 +97,37 @@ public class bataille {
                 ligne = randRange(0, 10);
                 colonne = randRange(0, 10);
                 direction = randRange(1, 3);
+                System.out.println("La ligne est: "+ (ligne + 1) + "\nColonne: " + (colonne + 1) + "\nDirection: " +direction);
             }
-        }while(!ok);
+        }while(ok != true);
         //Si à la verticale
+
         if(direction == 1){
-            for(int i = 0; i < lngr; i++){
-                grilleOrdi[ligne + i][colonne] = lngr;
+            if(colonne > 5){
+                for(int i = 0; i < lngr; i++){
+                    grilleOrdi[ligne][colonne - i] = lngr;
+                }
             }
+            else{
+                for(int i = 0; i < lngr; i++){
+                    grilleOrdi[ligne][colonne + i] = lngr;
+                }
+            }
+
         }
         else{
-            for(int i = 0; i < lngr; i++){
-                grilleOrdi[ligne][colonne + i] = lngr;
+            if(ligne > 5){
+                for(int i = 0; i < lngr; i++){
+                    grilleOrdi[ligne - i][colonne ] = lngr;
+                }
+            }
+            else{
+                for(int i = 0; i < lngr; i++){
+                    grilleOrdi[ligne + i][colonne ] = lngr;
+                }
             }
         }
+
    }
 
     public static Random rand = new Random();
