@@ -31,6 +31,7 @@ public class bataille {
                 for(int indiceLigne = l; indiceLigne > (l-t); indiceLigne--){
                     for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
                         valeurTab+= grille[indiceLigne][indiceColonne];
+
                     }
                 }
             }
@@ -58,7 +59,7 @@ public class bataille {
         int d = randRange(1, 3);
         //En verticale
         System.out.println("L: "+ (l ) + " C: " + (c ) + " D: " +d);
-
+//pourrais mettre l'intiation  des ranb a l'interierur de bato
         bato(l,c, d, 5);
         l = randRange(0, 10);
         c = randRange(0, 10);
@@ -67,23 +68,23 @@ public class bataille {
         System.out.println("L: "+ (l ) + " C: " + (c ) + " D: " +d);
 
         bato(l,c, d, 4);
+
         l = randRange(0, 10);
         c = randRange(0, 10);
         d = randRange(1, 3);
-
         System.out.println("L: "+ (l ) + " C: " + (c ) + " D: " +d);
         bato(l,c, d, 3);
-//        l = randRange(0, 10);
-//        c = randRange(0, 10);
-//        d = randRange(1, 3);
-//        bato(l,c, d, 3);
-//        l = randRange(0, 10);
-//        c = randRange(0, 10);
-//        d = randRange(1, 3);
-//        bato(l,c, d, 2);
-//        l = randRange(0, 10);
-//        c = randRange(0, 10);
-//        d = randRange(1, 3);
+        l = randRange(0, 10);
+        c = randRange(0, 10);
+        d = randRange(1, 3);
+        bato(l,c, d, 3);
+        l = randRange(0, 10);
+        c = randRange(0, 10);
+        d = randRange(1, 3);
+        bato(l,c, d, 2);
+        l = randRange(0, 10);
+        c = randRange(0, 10);
+        d = randRange(1, 3);
     }
 
     public static void bato(int ligne, int colonne, int direction , int lngr){
@@ -160,3 +161,4 @@ public class bataille {
 
 }
 
+//System.out.println(grille[indiceLigne][indiceColonne]);
