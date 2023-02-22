@@ -1,0 +1,44 @@
+//        int valeurTab = 0;
+//
+//        if(d ==1){
+//            if(c > 5){
+//                for(int indiceLigne = 0; indiceLigne < l; indiceLigne++){
+//                    for(int indiceColonne = c; indiceColonne > (c-t);indiceColonne-- ){
+//                        valeurTab+= grille[indiceLigne][indiceColonne];
+//                    }
+//                }
+//            }
+//            else{
+//                for(int indiceLigne = 0; indiceLigne < l; indiceLigne++){
+//                    for(int indiceColonne = c; indiceColonne < (c+t);indiceColonne++  ){
+//                        valeurTab+= grille[indiceLigne][indiceColonne];
+//                    }
+//                }
+//            }
+//        }
+//        else{
+//            if(l > 5){
+//                for(int indiceLigne = l; indiceLigne > (l-t); indiceLigne--){
+//                    for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
+//                        valeurTab+= grille[indiceLigne][indiceColonne];
+//
+//                    }
+//                }
+//            }
+//            else{
+//                for(int indiceLigne = l; indiceLigne > (l+t); indiceLigne++){
+//                    for(int indiceColonne = 0; indiceColonne < c; indiceColonne++){
+//                        valeurTab+= grille[indiceLigne][indiceColonne];
+//
+//                    }
+//                }
+//            }
+//        }
+//        System.out.println(valeurTab);
+//        if(valeurTab == 0){
+//            return true;
+//
+//        }
+//        else{
+//            return false;
+//        }
